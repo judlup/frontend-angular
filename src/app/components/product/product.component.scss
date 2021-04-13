@@ -1,0 +1,107 @@
+@import "../../app.component.scss";
+
+.product-picture {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  .main-picture {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    border: 2px solid $color-border-gray;
+    border-radius: 8px;
+  }
+  .secondary-picture {
+    margin-top: 5px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid $color-border-gray;
+    img {
+      width: 100px;
+    }
+  }
+  .active {
+    border: 2px solid$color-black;
+  }
+  .product-main-features {
+    .feature-text {
+      font-size: 13px;
+      font-weight: 400;
+      color: $color-balck-metal;
+      line-height: 20px;
+    }
+  }
+}
+
+.product-description {
+  overflow-y: auto;
+  height: 90vh;
+  max-height: 90vh;
+  .title {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .subtitle-2 {
+    font-size: 19.2px;
+    font-weight: 500;
+  }
+  .menu-title {
+    font-size: 19.2px;
+    color: $color-subtitle-gray;
+  }
+
+  .menu-title-active {
+    border-bottom: 2px solid $color-black;
+  }
+  .product-description-text {
+    font-size: 16px;
+    color: $color-subtitle-gray;
+  }
+
+  .menu-title-2 {
+    font-size: 19.2px;
+    font-weight: 500;
+  }
+  .feature-box {
+    padding: 25px;
+    border: 2px solid $color-border-gray;
+    border-radius: 8px;
+    .feature-box-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .feature-box-text {
+      font-size: 14px;
+      color: $color-subtitle-gray;
+    }
+  }
+  .warranty-box {
+    padding: 25px;
+    border: 2px solid $color-border-gray;
+    border-radius: 8px;
+    .warranty-title {
+      font-size: 14px;
+      font-weight: bold;
+      color: $color-balck-metal;
+    }
+    .warranty-text {
+      font-size: 14px;
+    }
+    .warranty-price {
+      font-weight: bold;
+      font-size: 14px;
+      color: $color-black;
+    }
+  }
+  .warranty-box-active {
+    border: 2px solid $color-blue-active;
+  }
+}
