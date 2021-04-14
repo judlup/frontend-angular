@@ -1,22 +1,27 @@
 <div class="container-fluid">
-  <div class="row ml-5">
+  <div class="row ml-md-5 ml-xs-0 mr-xs-0">
+    <div class="col-12">
+      <div class="row d-flex justify-content-center todo">
+        Todo | <span [ngClass]="{completed: todoInfo.completed === true}">  {{todoInfo.title}}  </span>
+      </div>
+    </div>
     <div class="col-md-6 mt-5 product-picture">
       <div class="row">
         <div class="col-md-12 main-picture">
-          <img src="assets/product_1.png"  />
+          <img [src]=picturePath/>
         </div>
         <div class="col-md-12 d-flex justify-content-center mt-2">
-          <div class="col-md-4 secondary-picture active mr-2 ml-1">
-            <img src="assets/product_1.png"  />
+          <div class="col-md-4 secondary-picture mr-2 ml-1" (click)="setSelected(1,'picture', 'assets/product_1.png')" [ngClass]="{'selected': pictureSelected === 1 }">
+            <img src="assets/product_1.png" class="mt-1 mb-1"  />
           </div>
-          <div class="col-md-4 secondary-picture mr-2 ml-2">
-            <img src="assets/product_2.png"  />
+          <div class="col-md-4 secondary-picture mr-2 ml-2" (click)="setSelected(2,'picture', 'assets/product_2x.png')" [ngClass]="{'selected': pictureSelected === 2 }">
+            <img src="assets/product_2.png" class="mt-1 mb-1"  />
           </div>
-          <div class="col-md-4 secondary-picture mr-2 ml-2">
-            <img src="assets/product_3.png"   />
+          <div class="col-md-4 secondary-picture mr-2 ml-2" (click)="setSelected(3,'picture', 'assets/product_3x.png')" [ngClass]="{'selected': pictureSelected === 3 }">
+            <img src="assets/product_3.png" class="mt-1 mb-1"  />
           </div>
         </div>
-        <div class="col-md-12 d-flex justify-content-center mt-5 product-main-features">
+        <div class="col-md-12 d-flex justify-content-center mt-5 product-main-features container-fluid">
           <div class="col-md-4 d-flex justify-content-center">
             <div class="row">
               <div class="col-md-12 d-flex justify-content-center mb-3">
@@ -51,11 +56,27 @@
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
     <div class="col-md-6 product-description">
+      <div class="col-12 col-md-12 ml-md-2 mr-md-2 mt-md-5 mb-md-5">
+        <div class="row">
+          <div class="col-md-12">
+            <span class="main-subtitle-2">
+              NEW RELEASE
+            </span>
+          </div>
+          <div class="col-md-12">
+            <span class="main-title">MOMENTUM True Wireless 2</span>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <span class="main-subtitle-1">
+            Earbuds that put sound first
+          </span>
+        </div>
+      </div>
       <div class="row ml-2 mr-2">
         <div class="col-md-12">
           <span class="text-muted subtitle">STARTING AT</span>
@@ -63,24 +84,62 @@
         </div>
         <div class="col-md-12 mt-3">
           <div class="row">
-            <div class="col-md-2 text-dark">
-              <strong class="menu-title menu-title-active"> Overview</strong>
+            <div class="col-4 col-xs-4 col-sm-4 col-md-2">
+              <strong class="menu-title" (click)="setSelected(1,'section')"  [ngClass]="{'selected-underline': sectionSelected === 1 }"> Overview</strong>
             </div>
-            <div class="col-md-2 text-muted">
-              <strong class="menu-title">Features</strong> 
+            <div class="col-3 col-xs-3 col-sm-4 col-md-2">
+              <strong class="menu-title" (click)="setSelected(2,'section')"  [ngClass]="{'selected-underline': sectionSelected === 2 }">Features</strong> 
             </div>
-            <div class="col-md-4 text-muted">
-              <strong class="menu-title">What's in the box?</strong>
+            <div class="col-5 col-xs-5 col-sm-4 col-md-4">
+              <strong class="menu-title d-none d-sm-block" (click)="setSelected(3,'section')"  [ngClass]="{'selected-underline': sectionSelected === 3 }">What's in the box? </strong>
+              <strong class="menu-title d-block d-sm-none" (click)="setSelected(3,'section')"  [ngClass]="{'selected-underline': sectionSelected === 3 }">What's in </strong>
             </div>
             
             <div class="col-md-12 mt-3 text-justify pr-5 product-description-text" >
-              <p>For the past 75 years, Sennheiser has put sound first. The new MOMENTUM True Wireless 2 is no different. Thanks to leading audio technology and innovation, these new earbuds deliver the best listening experience anytime, anywhere. With improved ergonomics designed for full day wearing and refined touch controls for a more personalised experience, they have been finely crafted for the most discerning listener and aim to simplify your life by enhancing your everyday.</p>
+              <p>{{sectionText}}</p>
+            </div>
+            
+            <div class="col-12 col-md-12 mt-3 product-main-features d-sm-noned-block d-sm-none">
+              <div class="col-12 col-xs-12 mt-5 mb-5">
+                <div class="row">
+                  <div class="col-md-12 mb-3 d-flex justify-content-center">
+                    <img src="assets/icon_2.png" />
+                  </div>
+                  <br>  
+                  <div class="col-md-12 text-center">
+                    <span class="feature-text">Customizable Touch Controls</span>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="col-12 col-xs-12 mt-5 mb-5">
+                <div class="row d-flex">
+                  <div class="col-md-12  mb-3 d-flex justify-content-center">
+                    <img src="assets/icon_3.png" />
+                  </div>
+                  <br>  
+                  <div class="col-12 col-xs-12 text-center">
+                    <span class="feature-text">Built-in equalizer</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-xs-12 mt-5 mb-5">
+                <div class="row d-flex">
+                  <div class="col-md-12 mb-3 d-flex justify-content-center">
+                    <img src="assets/icon_1.png" />
+                  </div>
+                  <br>  
+                  <div class="col-md-12 feature-text text-center">
+                    <span class="feature-text">Active Noise Cancellation</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="col-md-12">
               <span class="menu-title-2">Choose your finish.</span>
             </div>
-            <div class="col-md-5 rounded ml-3 mr-3 mt-3 feature-box">
+            <div class="col-md-5 ml-3 mr-3 mt-3 feature-box" (click)="setSelected(1,'version')"  [ngClass]="{'selected': versionSelected === 1 }">
               <div class="row">
                 <div class="col-md-12">
                   <span class="feature-box-title">Ivory White</span>
@@ -92,7 +151,7 @@
               </div>
             </div>
 
-            <div class="col-md-5 ml-3 mr-3 mt-3 feature-box">
+            <div class="col-md-5 ml-3 mr-3 mt-3 feature-box" (click)="setSelected(2,'version')" [ngClass]="{'selected': versionSelected === 2 }">
               <div class="row">
                 <div class="col-md-12">
                   <span class="feature-box-title">Matte Black</span>
@@ -109,7 +168,7 @@
             </div>
             <div class="col-md-12 mt-3 ml-3">
               <div class="row">
-                <div class="col-md-11 warranty-box warranty-box-active">
+                <div class="col-md-11 warranty-box" (click)="setSelected(1,'warranty')" [ngClass]="{'selected': warrantySelected === 1 }">
                   <span class="warranty-title">2 years coveage</span>
                   <p class="text-muted warranty-text">For the past 75 years, Sennheiser has put sound first.</p>
                 </div>
@@ -118,7 +177,7 @@
 
             <div class="col-md-12 mt-3 ml-3 mb-3">
               <div class="row">
-                <div class="col-md-11 warranty-box">
+                <div class="col-md-11 warranty-box" (click)="setSelected(2,'warranty')" [ngClass]="{'selected': warrantySelected === 2 }">
                   <div class="row">
                     <div class="col-md-10">
                       <span class="warranty-title">3 years coveage</span>
@@ -127,6 +186,48 @@
                     <div class="col-md-2 d-flex text-right align-items-center warranty-price">
                       + $75
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-12 mt-5">
+              <span class="subtitle-2">Features.</span>
+            </div>
+            <div class="col-md-12 mt-3 ml-3">
+              <div class="row">
+                <div class="col-md-11 warranty-box" (click)="setSelected(1,'warranty')" [ngClass]="{'selected': warrantySelected === 1 }">
+                  <span class="warranty-title">Voice Assistant support</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 mt-3 ml-3 mb-3">
+              <div class="row">
+                <div class="col-md-11 col-xs-12 warranty-box" (click)="setSelected(2,'warranty')" [ngClass]="{'selected': warrantySelected === 2 }">
+                  <div class="row">
+                    <div class="col-xs-4 col-md-8">
+                      <span class="warranty-title">Customizable controls</span>
+                    </div>
+                    <div class="col-md-2 d-flex text-right align-items-center warranty-price">
+                      + $25
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 mb-5">
+              <div class="col-md-12 mt-5">
+                <span class="subtitle-2">Specifications.</span>
+              </div>
+              <div class="col-md-12 mt-3 ml-3" *ngFor="let spec of specifications">
+                <div class="row">
+                  <div class="col-4">
+                    <span>{{spec.feature}}</span>
+                  </div>
+                  <div class="col-8">
+                    <span>{{spec.description}}</span>
                   </div>
                 </div>
               </div>

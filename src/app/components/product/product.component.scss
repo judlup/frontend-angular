@@ -19,20 +19,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     border: 2px solid $color-border-gray;
+    transition: border 1s, box-shadow 1s;
+    &:hover {
+      -webkit-box-shadow: inset 0px 0px 0px 1px $color-shadow-2;
+      -moz-box-shadow: inset 0px 0px 0px 1px $color-shadow-2;
+      box-shadow: inset 0px 0px 0px 1px $color-shadow-2;
+      border: 1px solid $color-shadow-2;
+    }
+    &:focus {
+      -webkit-box-shadow: inset 0px 0px 0px 2px $color-shadow-2;
+      -moz-box-shadow: inset 0px 0px 0px 2px $color-shadow-2;
+      box-shadow: inset 0px 0px 0px 2px $color-shadow-2;
+      border: 3px solid $color-shadow;
+    }
     img {
       width: 100px;
     }
   }
-  .active {
-    border: 2px solid$color-black;
-  }
   .product-main-features {
+    @media (min-width: $xs-screen-min) and (max-width: $xs-screen-max) {
+      display: none !important;
+    }
     .feature-text {
       font-size: 13px;
       font-weight: 400;
       color: $color-balck-metal;
       line-height: 20px;
+      transition: font-size 1.5s;
+      cursor: default;
+      &:hover {
+        font-size: 16px;
+      }
     }
   }
 }
@@ -41,12 +60,41 @@
   overflow-y: auto;
   height: 90vh;
   max-height: 90vh;
+  .main-title {
+    font-family: "Circular Std Bold";
+    font-weight: 700;
+    color: $color-balck-metal;
+    font-size: 39.81px;
+    font-weight: 700;
+  }
+  .main-subtitle-1 {
+    color: $color-subtitle-gray;
+    font-size: 27.65px;
+    font-family: "Circular Std Book";
+    font-weight: 400;
+    position: relative;
+    right: 1.6%;
+    @media (min-width: $xs-screen-min) and (max-width: $xs-screen-max) {
+      font-size: 22px !important;
+    }
+  }
+  .main-subtitle-2 {
+    color: $color-red;
+    font-size: 13.33px;
+    font-family: "Circular Std Bold";
+    font-weight: 600;
+    line-height: 1.2;
+  }
   .title {
     font-size: 40px;
     font-weight: bold;
   }
   .subtitle {
+    letter-spacing: 2px;
     font-size: 13px;
+    @media (min-width: $xs-screen-min) and (max-width: $xs-screen-max) {
+      font-size: 13.33px;
+    }
   }
 
   .subtitle-2 {
@@ -56,10 +104,7 @@
   .menu-title {
     font-size: 19.2px;
     color: $color-subtitle-gray;
-  }
-
-  .menu-title-active {
-    border-bottom: 2px solid $color-black;
+    cursor: pointer;
   }
   .product-description-text {
     font-size: 16px;
@@ -69,11 +114,26 @@
   .menu-title-2 {
     font-size: 19.2px;
     font-weight: 500;
+    cursor: pointer;
   }
   .feature-box {
     padding: 25px;
     border: 2px solid $color-border-gray;
     border-radius: 8px;
+    cursor: pointer;
+    transition: border 1s, box-shadow 1s;
+    &:hover {
+      -webkit-box-shadow: inset 0px 0px 0px 1px $color-shadow-2;
+      -moz-box-shadow: inset 0px 0px 0px 1px $color-shadow-2;
+      box-shadow: inset 0px 0px 0px 1px $color-shadow-2;
+      border: 1px solid $color-shadow-2;
+    }
+    &:focus {
+      -webkit-box-shadow: inset 0px 0px 0px 2px $color-shadow-2;
+      -moz-box-shadow: inset 0px 0px 0px 2px $color-shadow-2;
+      box-shadow: inset 0px 0px 0px 2px $color-shadow-2;
+      border: 3px solid $color-shadow;
+    }
     .feature-box-title {
       font-size: 14px;
       font-weight: 500;
@@ -83,10 +143,18 @@
       color: $color-subtitle-gray;
     }
   }
+  .feature-mb {
+    // display: none !important;
+    // @media (min-width: $xs-screen-min) and (max-width: $xs-screen-max) {
+    //   display: block;
+    // }
+  }
   .warranty-box {
     padding: 25px;
     border: 2px solid $color-border-gray;
     border-radius: 8px;
+    cursor: pointer;
+    transition: border 1s, box-shadow 1s;
     .warranty-title {
       font-size: 14px;
       font-weight: bold;
@@ -100,8 +168,18 @@
       font-size: 14px;
       color: $color-black;
     }
+    &:hover {
+      -webkit-box-shadow: inset 0px 0px 0px 1px $color-shadow-2;
+      -moz-box-shadow: inset 0px 0px 0px 1px $color-shadow-2;
+      box-shadow: inset 0px 0px 0px 1px $color-shadow-2;
+      border: 1px solid $color-shadow-2;
+    }
   }
   .warranty-box-active {
     border: 2px solid $color-blue-active;
   }
+}
+.todo {
+  background-color: $color-blue-hover;
+  color: $color-white;
 }
